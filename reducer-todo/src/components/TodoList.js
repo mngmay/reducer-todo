@@ -11,8 +11,9 @@ const TodoList = ({ state, dispatch }) => {
             dispatch({ type: "TOGGLE_COMPLETED", payload: item });
             console.log("item clicked", state.items);
           }}
+          className={`completed-${item.completed}`}
         >
-          {item.item}
+          <span>{item.item}</span>
         </li>
       ))}
     </div>

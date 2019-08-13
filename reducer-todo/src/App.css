@@ -1,0 +1,7 @@
+.App {
+  text-align: center;
+}
+
+.completed-true {
+  text-decoration: line-through;
+}
