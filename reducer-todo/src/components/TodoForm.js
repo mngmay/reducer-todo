@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const TodoForm = ({ state, dispatch }) => {
-  const [newItem, setNewItem] = useState();
+  const [newItem, setNewItem] = useState("");
 
   const handleChanges = e => {
     setNewItem(e.target.value);
@@ -18,9 +18,10 @@ const TodoForm = ({ state, dispatch }) => {
         onChange={handleChanges}
       />
       <button
-        onClick={() =>
-          newItem && dispatch({ type: "ADD_ITEM", payload: newItem })
-        }
+        onClick={() => {
+          newItem && dispatch({ type: "ADD_ITEM", payload: newItem });
+          setNewItem("");
+        }}
       >
         Add Todo
       </button>
