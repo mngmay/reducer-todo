@@ -25,6 +25,13 @@ const TodoForm = ({ state, dispatch }) => {
       >
         Add Todo
       </button>
+      <button
+        onClick={() => {
+          dispatch({ type: "DELETE_COMPLETED" });
+        }}
+      >
+        Remove Completed
+      </button>
     </div>
   );
 };

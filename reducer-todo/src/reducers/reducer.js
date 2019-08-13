@@ -31,6 +31,10 @@ export const reducer = (state, action) => {
         })
       };
     case "DELETE_COMPLETED":
+      return {
+        ...state,
+        items: state.items.filter(item => item.completed !== true)
+      };
     default:
       return state;
   }
