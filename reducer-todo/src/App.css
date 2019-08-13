@@ -6,3 +6,8 @@
   text-decoration: line-through;
   color: gray;
 }
+
+.overdue-true {
+  color: red;
+  font-weight: 700;
+}

@@ -21,7 +21,8 @@ export const reducer = (state, action) => {
             completed: false,
             id: Date.now(),
             dateComplete: "",
-            dueDate: moment(action.payload.dueDate).format("MMMM Do YYYY")
+            dueDate: moment(action.payload.dueDate).format("MMMM Do YYYY"),
+            overDue: false
           }
         ]
       };
