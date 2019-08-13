@@ -1,3 +1,5 @@
+import TodoForm from "../components/TodoForm";
+
 export const initialState = {
   items: []
   /*
@@ -20,8 +22,15 @@ export const reducer = (state, action) => {
     case "TOGGLE_COMPLETED":
       return {
         ...state,
-        completed: !state.completed
+        items: state.items.map(item => {
+          if (item.id === action.payload.id) {
+            return { ...item, completed: !item.completed };
+          } else {
+            return item;
+          }
+        })
       };
+    case "DELETE_COMPLETED":
     default:
       return state;
   }

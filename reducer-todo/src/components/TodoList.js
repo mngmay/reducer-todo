@@ -7,7 +7,10 @@ const TodoList = ({ state, dispatch }) => {
       {state.items.map(item => (
         <li
           key={item.id}
-          onClick={() => dispatch({ type: "TOGGLE_COMPLETED" })}
+          onClick={() => {
+            dispatch({ type: "TOGGLE_COMPLETED", payload: item });
+            console.log("item clicked", state.items);
+          }}
         >
           {item.item}
         </li>
