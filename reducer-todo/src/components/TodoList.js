@@ -1,7 +1,7 @@
 import React from "react";
+import moment from "moment";
 
 const TodoList = ({ state, dispatch }) => {
-  console.log("state", state.items);
   return (
     <div>
       {state.items.map(item => (
@@ -9,11 +9,16 @@ const TodoList = ({ state, dispatch }) => {
           key={item.id}
           onClick={() => {
             dispatch({ type: "TOGGLE_COMPLETED", payload: item });
-            console.log("item clicked", state.items);
           }}
           className={`completed-${item.completed}`}
         >
-          <span>{item.item}</span>
+          <span>{item.item}</span>{" "}
+          {item.completed && (
+            <span>
+              Completed:{" "}
+              {moment(item.dateComplete).format("MMMM Do YYYY, h:mm:ss a")}
+            </span>
+          )}
         </li>
       ))}
     </div>

@@ -16,7 +16,12 @@ export const reducer = (state, action) => {
         ...state,
         items: [
           ...state.items,
-          { item: action.payload, completed: false, id: Date.now() }
+          {
+            item: action.payload,
+            completed: false,
+            id: Date.now(),
+            dateComplete: ""
+          }
         ]
       };
     case "TOGGLE_COMPLETED":
@@ -24,7 +29,11 @@ export const reducer = (state, action) => {
         ...state,
         items: state.items.map(item => {
           if (item.id === action.payload.id) {
-            return { ...item, completed: !item.completed };
+            return {
+              ...item,
+              completed: !item.completed,
+              dateComplete: Date.now()
+            };
           } else {
             return item;
           }

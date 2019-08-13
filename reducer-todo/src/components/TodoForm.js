@@ -5,7 +5,6 @@ const TodoForm = ({ dispatch }) => {
 
   const handleChanges = e => {
     setNewItem(e.target.value);
-    console.log(e.target.value);
   };
 
   return (
