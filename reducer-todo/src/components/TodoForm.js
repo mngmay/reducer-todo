@@ -2,9 +2,11 @@ import React, { useState } from "react";
 
 const TodoForm = ({ dispatch }) => {
   const [newItem, setNewItem] = useState("");
+  const [dueDate, setDueDate] = useState("");
 
   const handleChanges = e => {
-    setNewItem(e.target.value);
+    e.target.name === "newItem" && setNewItem(e.target.value);
+    e.target.name === "dueDate" && setDueDate(e.target.value);
   };
 
   return (
@@ -16,9 +18,17 @@ const TodoForm = ({ dispatch }) => {
         value={newItem}
         onChange={handleChanges}
       />
+      <input
+        className="item-dueDate"
+        type="date"
+        name="dueDate"
+        value={dueDate}
+        onChange={handleChanges}
+      />
       <button
         onClick={() => {
-          newItem && dispatch({ type: "ADD_ITEM", payload: newItem });
+          newItem &&
+            dispatch({ type: "ADD_ITEM", payload: { newItem, dueDate } });
           setNewItem("");
         }}
       >

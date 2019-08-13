@@ -1,4 +1,4 @@
-import TodoForm from "../components/TodoForm";
+import moment from "moment";
 
 export const initialState = {
   items: []
@@ -17,10 +17,11 @@ export const reducer = (state, action) => {
         items: [
           ...state.items,
           {
-            item: action.payload,
+            item: action.payload.newItem,
             completed: false,
             id: Date.now(),
-            dateComplete: ""
+            dateComplete: "",
+            dueDate: moment(action.payload.dueDate).format("MMMM Do YYYY")
           }
         ]
       };

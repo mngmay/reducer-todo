@@ -12,7 +12,7 @@ const TodoList = ({ state, dispatch }) => {
           }}
           className={`completed-${item.completed}`}
         >
-          <span>{item.item}</span>{" "}
+          <span>{item.item}</span> <span>Due: {item.dueDate}</span>{" "}
           {item.completed && (
             <span>
               Completed:{" "}
