@@ -10,10 +10,13 @@ const TodoList = ({ state, dispatch }) => {
           onClick={() => {
             dispatch({ type: "TOGGLE_COMPLETED", payload: item });
           }}
-          className={`completed-${item.completed} overdue-${item.overDue}`}
+          className={`completed-${item.completed} overdue-${Date.now() >
+            Date.parse(item.dueDate)}`}
         >
           <span>{item.item}</span>{" "}
-          {item.dueDate !== "Invalid date" && <span>Due: {item.dueDate}</span>}{" "}
+          {item.dueDate !== "" && (
+            <span>Due: {moment(item.dueDate).format("MMMM Do YYYY")}</span>
+          )}{" "}
           {item.completed && (
             <span>
               Completed:{" "}

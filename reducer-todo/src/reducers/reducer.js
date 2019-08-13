@@ -1,5 +1,3 @@
-import moment from "moment";
-
 export const initialState = {
   items: []
   /*
@@ -21,8 +19,7 @@ export const reducer = (state, action) => {
             completed: false,
             id: Date.now(),
             dateComplete: "",
-            dueDate: moment(action.payload.dueDate).format("MMMM Do YYYY"),
-            overDue: false
+            dueDate: action.payload.dueDate
           }
         ]
       };
