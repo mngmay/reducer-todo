@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+.completed-true {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.overdue-true {
+  color: red;
+  font-weight: 700;
+}
